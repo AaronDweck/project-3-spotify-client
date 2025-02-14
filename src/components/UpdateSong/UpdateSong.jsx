@@ -25,13 +25,13 @@ export default function UpdateSong() {
             return navigate('/login')
         } 
 
-        songShow(id).then(({song}) => {
-            if (user._id !== song.user_id._id) {
+        songShow(id).then((data) => {
+            if (user._id !== data.user_id._id) {
                 console.log('hello')
                 return navigate('/')
             }
 
-            setFormData(song)
+            setFormData(data)
         }).catch(() => navigate('/'))
 
     }, [id, user, navigate])
